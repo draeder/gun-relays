@@ -1,5 +1,5 @@
 # gun-relays
-Returns a TXT record from `gun.peer.ooo` containing volunteer GUN relays for use in your decentralized apps.
+Returns TXT records from `gun.peer.ooo` containing volunteer GUN relays for use in your decentralized apps.
 
 ## Usage
 
