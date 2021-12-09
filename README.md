@@ -16,18 +16,14 @@ let result = dns.resolveTxt( 'gun.peer.ooo', (err, res) => {
 ```js
 <script src="https://cdn.jsdelivr.net/npm/dohjs@latest/dist/doh.min.js"></script>
 <script>
-
 const resolver = new doh.DohResolver('https://1.1.1.1/dns-query')
 
-let trackers = []
 resolver.query('gun.peer.ooo', 'TXT')
 .then(response => {
-
     response.answers.forEach(ans => {
         let results = ans.data.toString()
         console.log(results)
     })
-
 }).catch(err => console.error(err))
 </script>
 ```
