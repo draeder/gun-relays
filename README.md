@@ -1,5 +1,5 @@
 # gun-relays
-Returns TXT records from `gun.peer.ooo` containing volunteer GUN relays for use in your decentralized apps.
+Returns DNS TXT records from `gun.peer.ooo` containing volunteer GUN relays for use in your decentralized apps.
 
 ## Usage
 
