@@ -7,7 +7,7 @@ Returns a TXT record from `gun.peer.ooo` containing volunteer GUN relays for use
 ```js
 const dns = require('dns')
 
-let result = dns.resolveTxt( 'gun.peer.ooo', (err, res) => {
+dns.resolveTxt( 'gun.peer.ooo', (err, res) => {
     console.log(res)
 })
 ```
