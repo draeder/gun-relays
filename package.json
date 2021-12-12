@@ -1,7 +1,7 @@
 {
   "name": "gun-relays",
   "version": "1.0.0",
-  "description": "Returns [volunteer GUN relays](https://github.com/amark/gun/wiki/volunteer.dht) for use in your decentralized apps.",
+  "description": "Returns volunteer GUN relays for use in your decentralized apps.",
   "main": "index.js",
   "type": "module",
   "scripts": {

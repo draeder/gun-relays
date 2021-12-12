@@ -4,23 +4,27 @@ import getUrls from 'get-urls'
 
 // Suppress extraneous GUN logging
 let cl = console.log
-//console.log = () => {}
+console.log = () => {}
 
 const Relays = async () => {
 
+    let gunRelays = []
+
     let gun = new Gun({peers: ['https://relay.gun.ooo','https://gunjs.herokuapp.com'], file: 'gun-relays'})
 
-    // check gun
-    gun.get('gun-relays').get('relays').on(data => {
-        if(!data) fetchRelays()
-    })
+    // check gun first
+    let results = await gun.get('gun-relays').get('relays').on(data => {
+        // apparently, don't have to do anything here
+    }).then()
 
-    // if gun has no results, fetch them & update gun
+    if(results) gunRelays = JSON.parse(results)
+    else gunRelays = await fetchRelays()
+
+    // if gun has no results, fetch them from github & update gun
     async function fetchRelays(){
         let res = await fetch('https://github.com/amark/gun/wiki/volunteer.dht/_edit')
         let data = await(res.text())
     
-        let gunRelays = []
         let urls = getUrls(data)
         urls = Array.from(urls)
         urls.forEach(u => {
@@ -32,12 +36,13 @@ const Relays = async () => {
     
         gun.get('gun-relays').get('relays').put(JSON.stringify(gunRelays))
     
-        console.log = cl
         return gunRelays
     }
 
-    return fetchRelays()
-    
+    // restore normal console logging
+    console.log = cl
+
+    return gunRelays
 }
 
 export default Relays
