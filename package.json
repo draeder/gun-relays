@@ -1,0 +1,25 @@
+{
+  "name": "gun-relays",
+  "version": "1.0.0",
+  "description": "Returns [volunteer GUN relays](https://github.com/amark/gun/wiki/volunteer.dht) for use in your decentralized apps.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/draeder/gun-relays.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/draeder/gun-relays/issues"
+  },
+  "homepage": "https://github.com/draeder/gun-relays#readme",
+  "dependencies": {
+    "get-urls": "^10.0.1",
+    "gun": "^0.2020.1235",
+    "node-fetch": "^3.1.0"
+  }
+}
