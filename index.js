@@ -56,7 +56,12 @@ const Relays = async () => {
   return gunRelays;
 };
 
-export const forceRelayUpdate = async () => {
+export const forceListUpdate = async () => {
+  let gun = new Gun({
+    peers: ["https://relay.gun.ooo", "https://gunjs.herokuapp.com"],
+    file: "gun-relays",
+  });
+
   const newRelays = await fetchRelays();
 
   gun.get("gun-relays").get("relays").put(JSON.stringify(newRelays));
