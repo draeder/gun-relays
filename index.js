@@ -31,7 +31,7 @@ const Relays = async () => {
   let gunRelays = []
 
   let gun = new Gun({
-    peers: ['https://relay.gun.ooo', 'https://gunjs.herokuapp.com'],
+    peers: ['https://gun-manhattan.herokuapp.com/gun'],
     file: 'gun-relays',
   })
 
@@ -39,9 +39,7 @@ const Relays = async () => {
   let results = await gun
     .get('gun-relays')
     .get('relays')
-    .on((data) => {
-      // apparently, don't have to do anything here
-    })
+    .on((data) => {})
     .then()
 
   if (results) gunRelays = JSON.parse(results)
@@ -58,7 +56,7 @@ const Relays = async () => {
 
 export const forceListUpdate = async () => {
   let gun = new Gun({
-    peers: ['https://relay.gun.ooo', 'https://gunjs.herokuapp.com'],
+    peers: ['https://gun-manhattan.herokuapp.com/gun'],
     file: 'gun-relays',
   })
 
@@ -66,7 +64,6 @@ export const forceListUpdate = async () => {
 
   gun.get('gun-relays').get('relays').put(JSON.stringify(newRelays))
 
-  // restore normal console logging
   console.log = cl
 
   return newRelays
